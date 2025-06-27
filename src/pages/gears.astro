@@ -21,7 +21,7 @@ const { Content: GearsContent } = await gearsEntry.render()
   }
 </style>
 
-<script>
+<script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("main a").forEach((anchor) => {
       anchor.setAttribute("target", "_blank")
