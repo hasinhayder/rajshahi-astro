@@ -1,17 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import { getCollection } from "astro:content"
+import { getCollection, getEntry } from "astro:content"
 
 const allPosts = await getCollection("blog")
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+
+// Read homepage content from Markdown
+const homepageEntry = await getEntry("site-content", "homepage")
+const { Content: HomepageContent } = await homepageEntry.render()
 ---
 
 <Layout title="Rajshahi Blog - Homepage">
   <main>
     <section class="about-section">
-      <h1>Welcome to Rajshahi Blog</h1>
-      <p>A space for quiet reflections and observations. Here, thoughts drift like clouds across a melancholic sky, inviting you to pause and ponder.</p>
-      <p>Explore the musings below, or navigate through the categories to find something that resonates.</p>
+      <HomepageContent />
     </section>
 
     <section class="latest-posts">
@@ -90,3 +92,5 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pu
     }
   }
 </style>
+margin-bottom: 0.2em; } }
+
