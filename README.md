@@ -1,48 +1,55 @@
-# Astro Starter Kit: Basics
+# Rajshahi Blog - Astro Theme
 
-```sh
-bun create astro@latest -- --template basics
+A melancholic and contemplative blog theme built with Astro, inspired by the serene beauty of Rajshahi - a place that holds countless childhood memories and shaped my appreciation for quiet moments.
+
+## About Rajshahi
+
+Rajshahi is a city in northwestern Bangladesh that carries an old-world charm unlike any other. During my childhood, it was a place where time seemed to move slower - where ancient mango trees lined peaceful streets, where the Padma River whispered stories of bygone eras, and where every sunset painted the sky in hues that words can barely capture.
+
+The city's colonial architecture, with its red-brick buildings and wide verandas, created an atmosphere of gentle nostalgia. The University of Rajshahi campus, with its sprawling grounds and academic tranquility, felt like a sanctuary of learning and reflection. These memories of a scenic, peaceful, and beautifully aged town have deeply influenced the aesthetic and philosophy behind this blog theme.
+
+## Theme Features
+
+- **Minimal & Contemplative Design** - Clean layouts that encourage thoughtful reading
+- **Dark/Light Theme Toggle** - Adapts to your preferred reading environment
+- **Content Collections** - Organized blog posts with categories and tags
+- **Responsive Design** - Optimized for all devices and screen sizes
+- **Markdown Content Management** - Easy content creation and editing
+- **Fast & Performant** - Built with Astro for optimal performance
+
+## Getting Started
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd rajshahi
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Content Structure
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- **Blog Posts** - `/src/content/blog/`
+- **Site Content** - `/src/content/site-content/` (Homepage, About, Resources, Gears)
+- **Pages** - `/src/pages/`
+- **Components** - `/src/components/`
+- **Layouts** - `/src/layouts/`
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Customization
 
-## 🚀 Project Structure
+This theme is designed to be a personal space for quiet reflections. Feel free to customize the colors, typography, and content to match your own contemplative journey.
 
-Inside of your Astro project, you'll see the following folders and files:
+## A Note on Nostalgia
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+This blog theme is more than just code - it's a digital homage to a place that taught me to find beauty in simplicity, wisdom in silence, and peace in observation. May it serve as a gentle reminder that sometimes the most profound thoughts emerge from the quietest corners of our memories.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+_Built with love and nostalgia for Rajshahi, Bangladesh_ 🇧🇩
