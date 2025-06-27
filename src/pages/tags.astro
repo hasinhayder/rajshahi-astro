@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro"
+import { getCollection } from "astro:content"
+
+const allPosts = await getCollection("blog")
+
+// Collect all unique tags from all posts
+const tagSet = new Set<string>()
+allPosts.forEach((post) => {
+  if (post.data.tags && Array.isArray(post.data.tags)) {
+    post.data.tags.forEach((tag: string) => tagSet.add(tag))
+  }
+})
+const tags: string[] = Array.from(tagSet).sort((a: string, b: string) => a.localeCompare(b))
+---
+
+<Layout title="Blog Tags">
+  <main>
+    <h1>Tags</h1>
+    <ul class="tag-list">
+      {
+        tags.map((tag: string) => (
+          <li>
+            <a href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`} class="tag-link">
+              #{tag}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>

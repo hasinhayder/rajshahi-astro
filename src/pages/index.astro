@@ -77,4 +77,16 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pu
     color: var(--date-color);
     font-size: 0.9em;
   }
+
+  @media (max-width: 600px) {
+    .latest-posts li a {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2em;
+    }
+    .post-date {
+      order: -1;
+      margin-bottom: 0.2em;
+    }
+  }
 </style>
