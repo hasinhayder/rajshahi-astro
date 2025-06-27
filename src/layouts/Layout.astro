@@ -222,6 +222,12 @@ const { title } = Astro.props
     navigation: auto;
   }
   @media (max-width: 700px) {
+    #theme-toggle {
+      position: fixed;
+      top: 1.65rem !important;
+      right: 3rem !important;
+      z-index: 1000;
+    }
     .minimal-container,
     header,
     footer {
