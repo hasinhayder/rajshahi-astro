@@ -21,6 +21,18 @@ const { title } = Astro.props
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+
+    <script is:inline>
+      // Apply theme immediately to prevent flicker
+      ;(function () {
+        const saved = localStorage.getItem("theme")
+        const isDark = saved ? saved === "dark" : true
+        if (isDark) {
+          document.documentElement.classList.add("dark")
+        }
+      })()
+    </script>
+
     <slot name="head" />
 
     <!-- <ClientRouter /> -->
@@ -48,31 +60,34 @@ const { title } = Astro.props
       <slot />
     </main>
     <Footer />
+
     <script is:inline>
-      // Theme toggle and persistence logic
       function setTheme(theme) {
         if (theme === "dark") {
-          document.body.classList.add("dark")
+          document.documentElement.classList.add("dark")
           document.getElementById("icon-moon").style.display = "inline"
           document.getElementById("icon-sun").style.display = "none"
         } else {
-          document.body.classList.remove("dark")
+          document.documentElement.classList.remove("dark")
           document.getElementById("icon-moon").style.display = "none"
           document.getElementById("icon-sun").style.display = "inline"
         }
         localStorage.setItem("theme", theme)
       }
+
       function toggleTheme() {
-        const isDark = document.body.classList.contains("dark")
+        const isDark = document.documentElement.classList.contains("dark")
         setTheme(isDark ? "light" : "dark")
       }
-      function applySavedTheme() {
+
+      function initTheme() {
         const saved = localStorage.getItem("theme")
-        // Default to dark if no theme is saved
         const isDark = saved ? saved === "dark" : true
         setTheme(isDark ? "dark" : "light")
       }
-      applySavedTheme()
+
+      // Initialize theme when DOM is ready
+      document.addEventListener("DOMContentLoaded", initTheme)
     </script>
   </body>
 </html>
@@ -103,7 +118,7 @@ const { title } = Astro.props
     --radius: 18px;
     --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  body.dark {
+  html.dark {
     --text-color: #e0e3e8;
     --background-color: #181c22;
     --accent-color: #b0b8c1;
@@ -114,7 +129,6 @@ const { title } = Astro.props
     --card-bg: #23272f;
     --shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.18);
   }
-  html,
   body {
     margin: 0;
     width: 100%;
