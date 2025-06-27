@@ -27,7 +27,23 @@ const { title } = Astro.props
   </head>
   <body>
     <Header />
-    <button id="theme-toggle" aria-label="Toggle dark/light mode" style="position:fixed;top:1.5rem;right:2rem;z-index:1000;background:none;border:none;font-size:1.5rem;cursor:pointer;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" onclick="toggleTheme()">🌓</button>
+    <button id="theme-toggle" aria-label="Toggle dark/light mode" style="position:fixed;top:1.5rem;right:2rem;z-index:1000;background:none;border:none;font-size:1.5rem;cursor:pointer;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7" onclick="toggleTheme()">
+      <span id="theme-icon">
+        <!-- Default: Moon icon -->
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="display:inline;"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path></svg>
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="display:none;">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </span>
+    </button>
     <main class="minimal-container">
       <slot />
     </main>
@@ -37,8 +53,12 @@ const { title } = Astro.props
       function setTheme(theme) {
         if (theme === "dark") {
           document.body.classList.add("dark")
+          document.getElementById("icon-moon").style.display = "inline"
+          document.getElementById("icon-sun").style.display = "none"
         } else {
           document.body.classList.remove("dark")
+          document.getElementById("icon-moon").style.display = "none"
+          document.getElementById("icon-sun").style.display = "inline"
         }
         localStorage.setItem("theme", theme)
       }
@@ -55,7 +75,12 @@ const { title } = Astro.props
     </script>
   </body>
 </html>
-
+<style is:global>
+  pre {
+    padding: 10px;
+    font-size: 1.2em;
+  }
+</style>
 <style>
   :root {
     --text-color: #444950;
