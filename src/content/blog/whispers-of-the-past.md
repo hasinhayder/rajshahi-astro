@@ -3,7 +3,7 @@ title: "Whispers of the Past in Fading Light"
 pubDate: 2024-07-15
 description: "Contemplating memories as the day draws to a close."
 category: "Memories"
-tags: ["nostalgia", "time", "evening"]
+tags: ["nostalgia", "evening"]
 ---
 
 As the sun dips below the horizon, painting the sky in hues of bruised purple and fading orange, memories stir. They are not loud or demanding, but soft whispers, like the rustle of leaves in a gentle breeze. Faces, places, and feelings from long ago resurface, each a fleeting image in the mind's eye.

@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntryBySlug } from "astro:content"
+import { getCollection } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
 
 export async function getStaticPaths() {
@@ -16,27 +16,65 @@ const { Content } = await entry.render()
 
 <Layout title={entry.data.title}>
   <!-- <main class="blog-post minimal-container"> -->
-  <article>
-    <h1>{entry.data.title}</h1>
-    <p class="post-meta">
-      Published on {entry.data.pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-      in <a href={`/categories#${entry.data.category.toLowerCase().replace(/\s+/g, "-")}`}>{entry.data.category}</a>
-    </p>
-    <Content />
-  </article>
+  <main>
+    <article>
+      <h1>{entry.data.title}</h1>
+      <p class="post-meta">
+        Published on {entry.data.pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+        in <a href={`/categories#${entry.data.category.toLowerCase().replace(/\s+/g, "-")}`}>{entry.data.category}</a>
+      </p>
+      <Content />
+      {
+        entry.data.tags && entry.data.tags.length > 0 && (
+          <div class="post-tags">
+            {entry.data.tags.map((tag) => (
+              <a href={`/tags/${encodeURIComponent(tag)}`} class="tag">
+                #{tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </article>
+  </main>
   <!-- </main> -->
 </Layout>
 
 <style>
-  .blog-post {
+  main {
     max-width: 800px;
     margin: 3rem auto;
     padding: 0 1.5rem;
     flex-grow: 1;
   }
 
-  .blog-post h1 {
-    margin-bottom: 0.5rem;
+  .post-tags {
+    margin-top: 3rem;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .post-tags .tag {
+    display: inline-block;
+    background: var(--card-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.18em 0.85em 0.18em 0.85em;
+    font-size: 0.92em;
+    text-decoration: none;
+    transition:
+      background 0.2s,
+      color 0.2s,
+      border-color 0.2s;
+    opacity: 0.92;
+  }
+  .post-tags .tag:hover {
+    background: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+    opacity: 1;
   }
 
   .post-meta {
