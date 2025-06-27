@@ -17,6 +17,7 @@ const tags: string[] = Array.from(tagSet).sort((a: string, b: string) => a.local
 <Layout title="Blog Tags">
   <main>
     <h1>Tags</h1>
+    <p>Explore musings by their thematic tags:</p>
     <ul class="tag-list">
       {
         tags.map((tag: string) => (
@@ -30,3 +31,50 @@ const tags: string[] = Array.from(tagSet).sort((a: string, b: string) => a.local
     </ul>
   </main>
 </Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    flex-grow: 1;
+  }
+  
+  .tag-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+  
+  .tag-list li {
+    margin: 0;
+  }
+  
+  .tag-link {
+    display: inline-block;
+    background: var(--card-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.18em 0.85em;
+    font-size: 1em;
+    text-decoration: none;
+    transition:
+      background 0.2s,
+      color 0.2s,
+      border-color 0.2s;
+    opacity: 0.92;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  
+  .tag-link:hover {
+    background: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+    opacity: 1;
+  }
+</style>
