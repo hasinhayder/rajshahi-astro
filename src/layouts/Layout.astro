@@ -92,7 +92,7 @@ const { title } = Astro.props
 
       // Initialize theme when DOM is ready
       document.addEventListener("DOMContentLoaded", initTheme)
-      
+
       // Handle view transitions - maintain theme across page navigations
       document.addEventListener("astro:before-preparation", () => {
         const saved = localStorage.getItem("theme")
@@ -103,7 +103,7 @@ const { title } = Astro.props
           document.documentElement.classList.remove("dark")
         }
       })
-      
+
       // Re-initialize theme after view transition
       document.addEventListener("astro:after-swap", initTheme)
     </script>
@@ -120,6 +120,12 @@ const { title } = Astro.props
   }
   a:hover {
     color: var(--link-hover-color);
+  }
+
+  main p img {
+    max-width: 100%;
+    margin: 0 auto 2.5rem auto;
+    border-radius: var(--radius);
   }
 </style>
 <style>

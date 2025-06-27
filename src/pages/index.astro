@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro"
 import { getCollection, getEntry } from "astro:content"
 
 const allPosts = await getCollection("blog")
-const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()).slice(0, 5) // Get the latest 5 posts
 
 // Read homepage content from Markdown
 const homepageEntry = await getEntry("site-content", "homepage")
