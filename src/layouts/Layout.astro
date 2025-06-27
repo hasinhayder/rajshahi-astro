@@ -35,7 +35,7 @@ const { title } = Astro.props
 
     <slot name="head" />
 
-    <!-- <ClientRouter /> -->
+    <ClientRouter />
   </head>
   <body>
     <Header />
@@ -65,12 +65,16 @@ const { title } = Astro.props
       function setTheme(theme) {
         if (theme === "dark") {
           document.documentElement.classList.add("dark")
-          document.getElementById("icon-moon").style.display = "inline"
-          document.getElementById("icon-sun").style.display = "none"
+          const moonIcon = document.getElementById("icon-moon")
+          const sunIcon = document.getElementById("icon-sun")
+          if (moonIcon) moonIcon.style.display = "inline"
+          if (sunIcon) sunIcon.style.display = "none"
         } else {
           document.documentElement.classList.remove("dark")
-          document.getElementById("icon-moon").style.display = "none"
-          document.getElementById("icon-sun").style.display = "inline"
+          const moonIcon = document.getElementById("icon-moon")
+          const sunIcon = document.getElementById("icon-sun")
+          if (moonIcon) moonIcon.style.display = "none"
+          if (sunIcon) sunIcon.style.display = "inline"
         }
         localStorage.setItem("theme", theme)
       }
@@ -88,13 +92,24 @@ const { title } = Astro.props
 
       // Initialize theme when DOM is ready
       document.addEventListener("DOMContentLoaded", initTheme)
+      
+      // Handle view transitions - maintain theme across page navigations
+      document.addEventListener("astro:before-preparation", () => {
+        const saved = localStorage.getItem("theme")
+        const isDark = saved ? saved === "dark" : true
+        if (isDark) {
+          document.documentElement.classList.add("dark")
+        } else {
+          document.documentElement.classList.remove("dark")
+        }
+      })
+      
+      // Re-initialize theme after view transition
+      document.addEventListener("astro:after-swap", initTheme)
     </script>
   </body>
 </html>
 <style is:global>
-  @view-transition {
-    navigation: auto;
-  }
   pre {
     padding: 12px;
     font-size: 1.2em;
