@@ -58,11 +58,11 @@ const { title } = Astro.props
 
 <style>
   :root {
-    --text-color: #23272f;
+    --text-color: #444950;
     --background-color: #f8f9fb;
     --accent-color: #6c7a89;
     --link-hover-color: #23272f;
-    --heading-color: #181c22;
+    --heading-color: #555555;
     --date-color: #8a8a8a;
     --border-color: #e3e6eb;
     --card-bg: #fff;
@@ -95,7 +95,7 @@ const { title } = Astro.props
       color var(--transition);
   }
   .minimal-container {
-    max-width: 700px;
+    max-width: 900px;
     margin: 3.5rem auto 2.5rem auto;
     padding: 2.5rem 1.5rem 2.5rem 1.5rem;
     background: var(--card-bg);
@@ -115,7 +115,7 @@ const { title } = Astro.props
   h6 {
     font-family: "Lora", serif;
     color: var(--heading-color);
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 0;
     letter-spacing: -0.01em;
     margin-bottom: 1.2rem;
@@ -137,17 +137,20 @@ const { title } = Astro.props
     font-size: 1.08rem;
   }
   a {
-    color: var(--accent-color);
+    color: var(--accent-color) !important;
     text-decoration: none;
     border-bottom: 1px dotted var(--accent-color);
     transition:
       color var(--transition),
       border-color var(--transition);
   }
-  a:hover {
-    color: var(--link-hover-color);
-    border-bottom: 1px solid var(--accent-color);
+
+  body.dark a:hover {
+    color: var(--link-hover-color) !important;
+    border-bottom: 1px solid #90caf9;
+    text-decoration: none !important;
   }
+
   #theme-toggle {
     background: none;
     color: var(--accent-color);
@@ -193,13 +196,21 @@ const { title } = Astro.props
   @view-transition {
     navigation: auto;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 700px) {
     .minimal-container,
     header,
     footer {
       max-width: 98vw;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+    }
+
+    .minimal-container {
+      margin-top: 0px;
+      border-radius: 0px;
+      box-shadow: none;
+      border: none;
+      padding: 0.1rem 0.5rem 2.5rem 0.5rem;
     }
   }
 </style>

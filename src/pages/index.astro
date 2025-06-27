@@ -61,7 +61,11 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pu
   }
 
   .latest-posts li a:hover {
-    color: var(--link-hover-color);
+    color: var(--link-hover-color) !important;
+  }
+
+  .post-title:hover {
+    color: var(--link-hover-color) !important;
   }
 
   .post-title {

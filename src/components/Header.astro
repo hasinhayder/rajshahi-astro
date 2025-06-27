@@ -3,7 +3,10 @@
     <div class="nav-left">
       <a href="/" class="brand">Rajshahi</a>
     </div>
-    <div class="nav-right">
+    <button class="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNavMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-right" id="nav-menu">
       <a href="/">Home</a>
       <a href="/about">About</a>
       <a href="/categories">Categories</a>
@@ -31,8 +34,9 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
+    position: relative;
   }
 
   .nav-left .brand {
@@ -50,6 +54,9 @@
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    transition:
+      right 0.2s,
+      opacity 0.2s;
   }
 
   .nav-right a {
@@ -65,4 +72,84 @@
   .nav-right a:hover {
     color: var(--link-hover-color);
   }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    margin-left: 1rem;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    margin: 4px 0;
+    background: var(--accent-color);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 700px) {
+    .nav-right {
+      position: absolute;
+      top: 100%;
+      right: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1.2rem 1.5rem;
+      min-width: 160px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1001;
+      transition:
+        opacity 0.2s,
+        top 0.2s;
+    }
+
+    .nav-right.open {
+      opacity: 1;
+      pointer-events: auto;
+      top: 110%;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-left .brand {
+      padding-left: 0.7rem;
+    }
+  }
 </style>
+<script is:inline>
+  function toggleNavMenu() {
+    const nav = document.getElementById("nav-menu")
+    const btn = document.querySelector(".hamburger")
+    nav.classList.toggle("open")
+    const expanded = nav.classList.contains("open")
+    btn.setAttribute("aria-expanded", expanded)
+  }
+  // Optional: close menu on outside click (mobile)
+  document.addEventListener("click", function (e) {
+    const nav = document.getElementById("nav-menu")
+    const btn = document.querySelector(".hamburger")
+    if (!nav || !btn) return
+    if (window.innerWidth > 700) return
+    if (!nav.contains(e.target) && !btn.contains(e.target)) {
+      nav.classList.remove("open")
+      btn.setAttribute("aria-expanded", "false")
+    }
+  })
+</script>

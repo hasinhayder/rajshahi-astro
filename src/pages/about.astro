@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro"
 
 <Layout title="About Rajshahi Blog">
   <main>
+    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1299&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rajshahi landscape" class="about-hero" loading="lazy" />
     <h1>About This Space</h1>
     <p>This blog is a quiet corner on the internet, a digital sanctuary for thoughts that often go unspoken. It's born from a desire to explore the subtle shades of human experience, the beauty in introspection, and the melancholic charm of everyday life.</p>
     <p>Here, you'll find reflections on various topics, from the fleeting moments of nature to the enduring questions of existence. There's no grand agenda, just an invitation to slow down, read, and perhaps find a resonance within your own quiet moments.</p>
@@ -16,5 +17,14 @@ import Layout from "../layouts/Layout.astro"
     margin: 3rem auto;
     padding: 0 1.5rem;
     flex-grow: 1;
+  }
+  .about-hero {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto 2.5rem auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    object-fit: cover;
   }
 </style>
