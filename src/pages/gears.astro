@@ -1,46 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import { getEntry } from "astro:content"
+
+const gearsEntry = await getEntry("site-content", "gears")
+const { Content: GearsContent } = await gearsEntry.render()
 ---
 
 <Layout title="Rajshahi Blog - My Gears">
   <main>
-    <h1>My Gears</h1>
-    <p>A curated list of the tools and companions that aid in my digital and creative endeavors. Each item is chosen for its reliability and quiet efficiency, contributing to a focused and contemplative workflow.</p>
-
-    <section class="gear-list">
-      <h2>Computers</h2>
-      <ul>
-        <li>
-          <strong>Laptop:</strong> ThinkPad X1 Carbon Gen 9 <span class="detail">(Reliable, lightweight, perfect for writing on the go)</span>
-        </li>
-        <li>
-          <strong>Desktop:</strong> Custom Build (Ryzen 7, 32GB RAM) <span class="detail">(For more demanding tasks and deeper dives)</span>
-        </li>
-      </ul>
-
-      <h2>Peripherals & Accessories</h2>
-      <ul>
-        <li>
-          <strong>Keyboard:</strong> Keychron K2 (Brown Switches) <span class="detail">(Tactile and satisfying, yet not overly loud)</span>
-        </li>
-        <li>
-          <strong>Mouse:</strong> Logitech MX Master 3 <span class="detail">(Ergonomic and precise, a silent workhorse)</span>
-        </li>
-        <li>
-          <strong>Monitor:</strong> Dell UltraSharp U2720Q <span class="detail">(Crisp visuals for long hours of contemplation)</span>
-        </li>
-        <li>
-          <strong>Headphones:</strong> Sony WH-1000XM4 <span class="detail">(For deep focus and escaping into soundscapes)</span>
-        </li>
-      </ul>
-
-      <h2>Software & Tools</h2>
-      <ul>
-        <li><strong>OS:</strong> Linux (Pop!_OS) <span class="detail">(Open, flexible, and distraction-free)</span></li>
-        <li><strong>Editor:</strong> VS Code <span class="detail">(My primary canvas for code and prose)</span></li>
-        <li><strong>Notes:</strong> Obsidian <span class="detail">(A second brain for interconnected thoughts)</span></li>
-      </ul>
-    </section>
+    <GearsContent />
   </main>
 </Layout>
 
@@ -51,19 +19,13 @@ import Layout from "../layouts/Layout.astro"
     padding: 0 1.5rem;
     flex-grow: 1;
   }
-  .gear-list ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 2rem;
-  }
-  .gear-list li {
-    margin-bottom: 0.8rem;
-  }
-  .gear-list li strong {
-    color: var(--heading-color);
-  }
-  .gear-list .detail {
-    color: var(--date-color);
-    font-size: 0.9em;
-  }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("main a").forEach((anchor) => {
+      anchor.setAttribute("target", "_blank")
+      anchor.setAttribute("rel", "noopener noreferrer")
+    })
+  })
+</script>

@@ -97,3 +97,12 @@ const { Content } = await entry.render()
     text-decoration: none !important;
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("main a").forEach((anchor) => {
+      anchor.setAttribute("target", "_blank")
+      anchor.setAttribute("rel", "noopener noreferrer")
+    })
+  })
+</script>

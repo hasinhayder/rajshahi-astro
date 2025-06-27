@@ -68,7 +68,8 @@ const { title } = Astro.props
       }
       function applySavedTheme() {
         const saved = localStorage.getItem("theme")
-        const isDark = saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        // Default to dark if no theme is saved
+        const isDark = saved ? saved === "dark" : true
         setTheme(isDark ? "dark" : "light")
       }
       applySavedTheme()
@@ -80,6 +81,12 @@ const { title } = Astro.props
     padding: 12px;
     font-size: 1.3em;
     border-radius: var(--radius);
+  }
+  a {
+    color: var(--accent-color);
+  }
+  a:hover {
+    color: var(--link-hover-color);
   }
 </style>
 <style>

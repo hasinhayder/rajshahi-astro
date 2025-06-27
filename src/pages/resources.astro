@@ -1,73 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro"
-title: "Resources"
+import { getEntry } from "astro:content"
+
+const resourcesEntry = await getEntry("site-content", "resources")
+const { Content: ResourcesContent } = await resourcesEntry.render()
 ---
 
 <Layout title="Resources">
-  <div class="resources-list">
-    <a class="resource-card" href="https://astro.build/" target="_blank" rel="noopener">
-      <div class="resource-title">Astro Documentation</div>
-      <div class="resource-desc">Official docs for Astro framework.</div>
-    </a>
-    <a class="resource-card" href="https://docs.astro.build/en/guides/integrations-guide/" target="_blank" rel="noopener">
-      <div class="resource-title">Astro Integrations Guide</div>
-      <div class="resource-desc">How to use and build Astro integrations.</div>
-    </a>
-    <a class="resource-card" href="https://github.com/withastro/astro" target="_blank" rel="noopener">
-      <div class="resource-title">Astro GitHub</div>
-      <div class="resource-desc">Source code and issues for Astro.</div>
-    </a>
-    <a class="resource-card" href="https://css-tricks.com/" target="_blank" rel="noopener">
-      <div class="resource-title">CSS-Tricks</div>
-      <div class="resource-desc">Tips and tricks for modern CSS.</div>
-    </a>
-    <a class="resource-card" href="https://developer.mozilla.org/" target="_blank" rel="noopener">
-      <div class="resource-title">MDN Web Docs</div>
-      <div class="resource-desc">Comprehensive web platform documentation.</div>
-    </a>
-  </div>
-
-  <style>
-    .resources-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      margin: 3rem;
-      /* margin-top: 2.2rem; */
-    }
-    .resource-card {
-      display: block;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.2rem 1.4rem;
-      text-decoration: none;
-      color: var(--text-color);
-      transition:
-        box-shadow 0.18s,
-        border-color 0.18s,
-        background 0.18s;
-      position: relative;
-    }
-    .resource-card:hover {
-      border-color: var(--accent-color);
-      box-shadow: 0 4px 32px 0 rgba(79, 140, 255, 0.1);
-      background: rgba(79, 140, 255, 0.03);
-    }
-    .resource-title {
-      font-size: 1.13rem;
-      font-weight: 600;
-      color: var(--accent-color);
-      margin-bottom: 0.2rem;
-    }
-    .resource-card:hover .resource-title {
-      color: var(--link-hover-color);
-    }
-    .resource-desc {
-      font-size: 0.98rem;
-      color: var(--date-color);
-      margin-top: 0.1rem;
-    }
-  </style>
+  <main>
+    <ResourcesContent />
+  </main>
 </Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    flex-grow: 1;
+  }
+</style>
+
+<style>
+  .resources-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin: 3rem;
+    /* margin-top: 2.2rem; */
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("main a").forEach((anchor) => {
+      anchor.setAttribute("target", "_blank")
+      anchor.setAttribute("rel", "noopener noreferrer")
+    })
+  })
+</script>
