@@ -1,5 +1,5 @@
 ---
-// import { ClientRouter } from "astro:transitions"
+import { ClientRouter } from "astro:transitions"
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 
@@ -92,6 +92,9 @@ const { title } = Astro.props
   </body>
 </html>
 <style is:global>
+  @view-transition {
+    navigation: auto;
+  }
   pre {
     padding: 12px;
     font-size: 1.2em;
@@ -240,9 +243,7 @@ const { title } = Astro.props
     background: var(--accent-color);
     color: #fff;
   }
-  @view-transition {
-    navigation: auto;
-  }
+
   @media (max-width: 700px) {
     #theme-toggle {
       position: fixed;
