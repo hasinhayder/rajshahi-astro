@@ -1,52 +1,68 @@
 <header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/categories">Categories</a>
-        <a href="/gears">Gears</a>
-        <a href="/sessions">Sessions</a>
-    <a href="/contact">Contact</a>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="/" class="brand">Rajshahi</a>
+    </div>
+    <div class="nav-right">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/categories">Categories</a>
+      <a href="/gears">Gears</a>
+      <a href="/sessions">Sessions</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact">Contact</a>
+    </div>
   </nav>
 </header>
 
 <style>
   header {
     width: 100%;
-    padding: 1.5rem 0;
+    padding: 1.5rem 0 1.2rem 0;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: center;
     align-items: center;
+    background: transparent;
   }
 
-  nav {
+  .navbar {
     display: flex;
-    gap: 2rem;
-    max-width: 800px;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
   }
 
-  nav a {
+  .nav-left .brand {
+    font-family: "Lora", serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    opacity: 0.92;
+    transition: color 0.2s;
+  }
+
+  .nav-right {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .nav-right a {
     color: var(--accent-color);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
+    font-size: 1.04rem;
+    transition: color 0.2s;
     position: relative;
+    padding: 2px 0;
   }
 
-  nav a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--link-hover-color);
-    transition: width 0.3s ease;
-  }
-
-  nav a:hover {
+  .nav-right a:hover {
     color: var(--link-hover-color);
   }
 </style>
