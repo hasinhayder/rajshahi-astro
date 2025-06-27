@@ -20,4 +20,18 @@ import Layout from "../layouts/Layout.astro"
     padding: 0 1.5rem;
     flex-grow: 1;
   }
+
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-color);
+    transition:
+      color var(--transition),
+      border-color var(--transition);
+  }
+
+  a:hover {
+    color: var(--link-hover-color) !important;
+    text-decoration: none !important;
+  }
 </style>
