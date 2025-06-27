@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout title="Rajshahi Blog - Sessions & Presentations">
+  <main>
+    <h1>Sessions & Presentations</h1>
+    <p>A collection of past talks, presentations, and video discussions. These are moments where thoughts were shared, ideas explored, and knowledge exchanged, often in a contemplative and reflective manner.</p>
+
+    <section class="sessions-list">
+      <h2>Presentations</h2>
+      <ul>
+        <li>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            The Art of Digital Minimalism <span class="session-date">(October 2023)</span>
+          </a>
+          <p class="session-description">A talk on decluttering digital spaces for enhanced focus and peace of mind.</p>
+        </li>
+        <li>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            Astro & Content Collections: Building a Quiet Blog <span class="session-date">(July 2023)</span>
+          </a>
+          <p class="session-description">Demonstrating how to leverage Astro's content features for a simple, elegant blog.</p>
+        </li>
+      </ul>
+
+      <h2>Videos & Discussions</h2>
+      <ul>
+        <li>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            Reflections on Open Source Philosophy <span class="session-date">(April 2023)</span>
+          </a>
+          <p class="session-description">A video discussion on the collaborative and communal aspects of open-source development.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    flex-grow: 1;
+  }
+  .sessions-list ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  .sessions-list li {
+    margin-bottom: 1.5rem;
+  }
+  .sessions-list li a {
+    color: var(--heading-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  .sessions-list li a:hover {
+    color: var(--link-hover-color);
+  }
+  .session-date {
+    color: var(--date-color);
+    font-size: 0.9em;
+    margin-left: 0.5rem;
+  }
+  .session-description {
+    color: var(--accent-color);
+    font-size: 0.9em;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+  }
+</style>

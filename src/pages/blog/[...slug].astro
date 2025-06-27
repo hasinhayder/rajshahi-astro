@@ -1,0 +1,47 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog")
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<Layout title={entry.data.title}>
+  <main class="blog-post">
+    <article>
+      <h1>{entry.data.title}</h1>
+      <p class="post-meta">
+        Published on {entry.data.pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+        in <a href={`/categories#${entry.data.category.toLowerCase().replace(/\s+/g, "-")}`}>{entry.data.category}</a>
+      </p>
+      <Content />
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .blog-post {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    flex-grow: 1;
+  }
+
+  .blog-post h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-meta {
+    color: var(--date-color);
+    font-size: 0.9em;
+    margin-bottom: 2rem;
+  }
+</style>

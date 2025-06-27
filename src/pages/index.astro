@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro"
+import { getCollection } from "astro:content"
+
+const allPosts = await getCollection("blog")
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+---
+
+<Layout title="Rajshahi Blog - Homepage">
+  <main>
+    <section class="about-section">
+      <h1>Welcome to Rajshahi Blog</h1>
+      <p>A space for quiet reflections and observations. Here, thoughts drift like clouds across a melancholic sky, inviting you to pause and ponder.</p>
+      <p>Explore the musings below, or navigate through the categories to find something that resonates.</p>
+    </section>
+
+    <section class="latest-posts">
+      <h2>Latest Musings</h2>
+      <ul>
+        {
+          sortedPosts.map((post) => (
+            <li>
+              <a href={`/blog/${post.slug}`}>
+                <span class="post-title">{post.data.title}</span>
+                <span class="post-date">{post.data.pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    flex-grow: 1; /* Allows main content to take available space */
+  }
+
+  .about-section,
+  .latest-posts {
+    margin-bottom: 4rem;
+  }
+
+  .latest-posts ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .latest-posts li a {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed var(--border-color);
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .latest-posts li a:hover {
+    color: var(--link-hover-color);
+  }
+
+  .post-title {
+    font-weight: 600;
+    color: var(--heading-color);
+  }
+
+  .post-date {
+    color: var(--date-color);
+    font-size: 0.9em;
+  }
+</style>

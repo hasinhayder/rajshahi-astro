@@ -1,0 +1,52 @@
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/categories">Categories</a>
+        <a href="/gears">Gears</a>
+        <a href="/sessions">Sessions</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+
+<style>
+  header {
+    width: 100%;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav {
+    display: flex;
+    gap: 2rem;
+    max-width: 800px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--link-hover-color);
+    transition: width 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--link-hover-color);
+  }
+</style>
