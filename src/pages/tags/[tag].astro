@@ -149,4 +149,17 @@ const filteredPosts = normalizedTag ? blogEntries.filter((entry) => entry.data.t
     font-style: italic;
     margin-top: 1.5rem;
   }
+
+  @media (max-width: 600px) {
+    .tag-post-link {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2em;
+    }
+    .date {
+      order: -1;
+      margin-left: 0;
+      margin-bottom: 0.2em;
+    }
+  }
 </style>
