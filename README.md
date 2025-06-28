@@ -64,9 +64,21 @@ This theme is designed to be a personal space for quiet reflections. Feel free t
 
 ## A Note on Nostalgia
 
-This blog theme is more than just code—it's a digital homage to a place that taught me to find beauty in simplicity, wisdom in silence, and peace in observation. May it serve as a gentle reminder that sometimes the most profound thoughts emerge from the quietest corners of our memories.
+```js
+// Sometimes, the simplest code holds the deepest meaning.
+// Like memories, each line is quiet, but together they tell a story.
+
+const nostalgia = ["Mango trees in the afternoon sun", "The hush of the Padma River at dusk", "Red-brick walls echoing with laughter", "Pages filled with handwritten dreams"]
+
+function reflect(memories) {
+  return memories.map((m) => `Remember: ${m}`)
+}
+
+console.log(reflect(nostalgia).join("\n"))
+
+// May your blog, like these memories, be a gentle space for reflection.
+```
 
 ---
 
-*Built with love and nostalgia for Rajshahi, Bangladesh* 🇧🇩
 *Built with love and nostalgia for Rajshahi, Bangladesh* 🇧🇩
