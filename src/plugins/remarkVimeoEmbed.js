@@ -12,7 +12,7 @@ export default function remarkVimeoEmbed() {
           const videoId = match[1];
           parent.children[index] = {
             type: 'html',
-            value: `<iframe width="100%" class='aspect-ratio' style="aspect-ratio: 16/9" src="https://player.vimeo.com/video/${videoId}" frameborder="0" allowfullscreen></iframe>`,
+            value: `<iframe width="100%" class='aspect-ratio' style="aspect-ratio: 16/9; border-radius:10px;" src="https://player.vimeo.com/video/${videoId}" frameborder="0" allowfullscreen></iframe>`,
           };
         }
       }

@@ -20,7 +20,7 @@ export default function remarkIframeEmbed() {
 
         parent.children[index] = {
           type: 'html',
-          value: `<iframe width="100%" class="aspect-ratio" style="aspect-ratio: 16/9" src="${url}" frameborder="0" allowfullscreen></iframe>`,
+          value: `<iframe width="100%" class="aspect-ratio" style="aspect-ratio: 16/9; border-radius:10px;" src="${url}" frameborder="0" allowfullscreen></iframe>`,
         };
       }
     });

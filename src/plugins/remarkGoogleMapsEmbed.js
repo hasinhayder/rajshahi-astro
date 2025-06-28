@@ -16,7 +16,7 @@ export default function remarkGoogleMapsEmbed() {
           }
           parent.children[index] = {
             type: 'html',
-            value: `<iframe width="100%" class='aspect-ratio' style="aspect-ratio: 16/9" src="${mapUrl}" frameborder="0" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+            value: `<iframe width="100%" class='aspect-ratio' style="aspect-ratio: 16/9; border-radius:10px;" src="${mapUrl}" frameborder="0" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>`,
           };
         }
       }

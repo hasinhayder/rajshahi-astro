@@ -20,7 +20,7 @@ export default function remarkPdfEmbed() {
 
         parent.children[index] = {
           type: 'html',
-          value: `<iframe src="${url}" width="100%" height="600" style="border:none; aspect-ratio: 16/9;" allowfullscreen></iframe>`,
+          value: `<iframe src="${url}" width="100%" height="600" style="border:none; aspect-ratio: 16/9; border-radius: 10px;" allowfullscreen></iframe>`,
         };
       }
     });
