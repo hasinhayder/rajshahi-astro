@@ -13,7 +13,7 @@ export default function remarkYoutubeEmbed() {
           const videoId = match[1];
           parent.children[index] = {
             type: 'html',
-            value: `<iframe width="100%" class='aspect-ratio' style="aspect-ratio: 16/9" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`,
+            value: `<iframe width="100%" class='aspect-ratio' style="aspect-ratio: 16/9; border-radius:10px;" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`,
           };
         }
       }
