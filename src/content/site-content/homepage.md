@@ -5,7 +5,9 @@ description: "A space for quiet reflections and observations."
 
 # Rajshahi Astro Theme
 
-![Rajshahi Skyline](https://i.pinimg.com/736x/a1/ec/a5/a1eca55d2982dba6076092be8fd1f30d.jpg)
+<!-- <iframe width="100%" style="aspect-ratio: 16/9" src="https://www.youtube.com/embed/5WybiA263bw?si=7O4h8Eem6RwbcOv3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+
+#y 5WybiA263bw
 
 This theme is a tribute to Rajshahi, a city of quiet charm and nostalgic memories. It's a digital space designed for contemplation, where thoughts can unfold slowly, like the gentle flow of the Padma River.
 
