@@ -68,7 +68,12 @@ This theme is designed to be a personal space for quiet reflections. Feel free t
 // Sometimes, the simplest code holds the deepest meaning.
 // Like memories, each line is quiet, but together they tell a story.
 
-const nostalgia = ["Mango trees in the afternoon sun", "The hush of the Padma River at dusk", "Red-brick walls echoing with laughter", "Pages filled with handwritten dreams"]
+const nostalgia = [
+  "Mango trees in the afternoon sun", 
+  "The hush of the Padma River at dusk", 
+  "Red-brick walls echoing with laughter", 
+  "Pages filled with handwritten dreams"
+]
 
 function reflect(memories) {
   return memories.map((m) => `Remember: ${m}`)
