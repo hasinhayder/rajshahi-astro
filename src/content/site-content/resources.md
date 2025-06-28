@@ -18,6 +18,10 @@ A curated collection of useful web development resources and references that I f
 - **[Astro GitHub](https://github.com/withastro/astro)** - Source code and issues for Astro.
 - **[CSS-Tricks](https://css-tricks.com/)** - Tips and tricks for modern CSS.
 
+## Learn Python
+
+#youtube fHn_NM9K470
+
 ## Tools & Utilities
 
 Various tools and utilities that enhance the development workflow and creative process.
