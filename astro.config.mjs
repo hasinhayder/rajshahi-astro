@@ -7,6 +7,8 @@ import remarkGoogleMapsEmbed from './src/plugins/remarkGoogleMapsEmbed.js'
 import remarkIframeEmbed from './src/plugins/remarkIframeEmbed.js'
 import remarkPdfEmbed from './src/plugins/remarkPdfEmbed.js'
 import remarkGistEmbed from './src/plugins/remarkGistEmbed.js'
+import remarkAscinemaEmbed from './src/plugins/remarkAscinemaEmbed.js';
+import remarkSoundcloudEmbed from './src/plugins/remarkSoundcloudEmbed.js';
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +21,8 @@ export default defineConfig({
             remarkIframeEmbed,
             remarkPdfEmbed,
             remarkGistEmbed,
+            remarkAscinemaEmbed,
+            remarkSoundcloudEmbed,
         ],
     },
 });
