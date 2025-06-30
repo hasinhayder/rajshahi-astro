@@ -1,0 +1,65 @@
+:root {
+    --text-color: #444950;
+    --background-color: #f8f9fb;
+    --accent-color: #6c7a89;
+    --link-hover-color: #23272f;
+    --heading-color: #555555;
+    --date-color: #8a8a8a;
+    --border-color: #e3e6eb;
+    --card-bg: #fff;
+    --shadow: 0 2px 24px 0 rgba(40, 60, 90, 0.06);
+    --radius: 18px;
+    --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  html.dark {
+    --text-color: #e0e3e8;
+    --background-color: #181c22;
+    --accent-color: #b0b8c1;
+    --link-hover-color: #ffe082;
+    --heading-color: #fff;
+    --date-color: #b0b0b0;
+    --border-color: #23272f;
+    --card-bg: #23272f;
+    --shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.18);
+  }
+
+  html.light pre.astro-code  {
+    background-color: #fafafa !important;
+  }
+pre {
+    
+    padding: 12px;
+    font-size: 1.2em;
+    border-radius: var(--radius);
+  }
+  ol li{
+    margin-bottom: 0.5rem !important;
+  }
+  code:not(pre code) {
+    font-size: 1.1em;
+  }
+  a {
+    color: var(--accent-color);
+  }
+  a:hover {
+    color: var(--link-hover-color);
+  }
+
+  main p img {
+    max-width: 100%;
+    margin: 0 auto 2.5rem auto;
+    border-radius: var(--radius);
+  }
+
+  .github-light {
+    background-color: #fff;
+    color: #24292e;
+  }
+  .dark .github-dark{
+    background-color: #23272f;
+    color: #e0e3e8;
+  }
+
+  h1{
+    font-size: 2em;
+  }
